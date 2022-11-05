@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Hernández Escobar Calculadora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="col-3">
+
+            <input type="text" class="form-control" id="cajita">
+            <hr>
+
+            <div class="mt-1">
+                <button class="btn btn-outline-dark" onclick="acBot(1)"> 1 </button>
+                <button class="btn btn-outline-dark" onclick="acBot(2)"> 2 </button>
+                <button class="btn btn-outline-dark" onclick="acBot(3)"> 3 </button>
+                <button class="btn btn-outline-secondary" onclick="sumBot()"> + </button>
+            </div>
+
+            <div class="mt-1">
+                <button class="btn btn-outline-dark" onclick="acBot(4)"> 4 </button>
+                <button class="btn btn-outline-dark" onclick="acBot(5)"> 5 </button>
+                <button class="btn btn-outline-dark" onclick="acBot(6)"> 6 </button>
+                <button class="btn btn-outline-secondary" onclick="restBot()"> - </button>
+            </div>
+            
+            <div class="mt-1">
+                <button class="btn btn-outline-dark" onclick="acBot(7)"> 7 </button>
+                <button class="btn btn-outline-dark" onclick="acBot(8)"> 8 </button>
+                <button class="btn btn-outline-dark" onclick="acBot(9)"> 9 </button>
+                <button class="btn btn-outline-secondary" onclick = "acMult()"> * </button>
+            </div>
+
+            <div class="mt-1">
+                <button class="btn btn-outline-dark" onclick="acBot(0)"> 0 </button>
+                <button class="btn btn-outline-success" onclick="acRes()"> = </button>
+                <button class="btn btn-outline-danger" onclick="acCle()"> C </button>             
+                <button class="btn btn-outline-secondary" onclick = "acDiv()"> / </button>
+            </div>
+
+            <div class="mt-1">          
+                <button class="btn btn-outline-success" onclick = "saludoBot()"> Saludo </button>
+                <button class="btn btn-outline-secondary" onclick = "tanBot()"> tan </button>
+                <button class="btn btn-outline-secondary" onclick = "cosBot()"> cos </button>
+                <button class="btn btn-outline-secondary" onclick = "sinBot()"> sin </button>
+                <button class="btn btn-outline-secondary" onclick="raizBot()"> √ </button>
+                <button class="btn btn-outline-secondary" onclick="potBot()"> ^ </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+
+    <script>
+
+        var jvalor = "";
+
+        var acum = "";
+
+        var opera = 0;
+        
+
+        function acRes(){
+            if( opera==1 ){
+                sum = parseInt (acum) + parseInt(jvalor);
+                $("#cajita").val(sum);
+                jvalor = sum;
+                opera = 0;
+            }
+            if (opera == 2){
+                rest= parseInt (acum) - parseInt(jvalor);
+                $("#cajita").val(rest);
+                jvalor = rest;
+                opera=0;
+            }     
+            if (opera == 3){
+                mult= parseInt (acum) * parseInt(jvalor);
+                $("#cajita").val(mult);
+                jvalor = mult;
+                opera=0;
+            }
+            if (opera == 4){
+                div= parseInt (acum) / parseInt(jvalor);
+                $("#cajita").val(div);
+                jvalor = div;
+                opera=0;
+            }
+            if (opera == 5){
+                pot= Math.pow (parseInt (acum), parseInt(jvalor));
+                $("#cajita").val(pot);
+                jvalor = pot;
+                opera=0;
+            }
+            if (opera == 6){
+                raiz= Math.sqrt(acum);
+                $("#cajita").val(raiz);
+                jvalor = raiz;
+                opera=0
+            }
+            if (opera == 7){
+                sin= Math.sin(acum);
+                $("#cajita").val(sin);
+                jvalor = sin;
+                opera=0
+            }
+            if (opera == 8){
+                cos= Math.cos(acum);
+                $("#cajita").val(cos);
+                jvalor = cos;
+                opera=0
+            }
+            if (opera == 9){
+                tan= Math.tan(acum);
+                $("#cajita").val(tan);
+                jvalor = tan;
+                opera=0
+            }
+            if (opera == 10){
+                name= $("#cajita").val("Daniel Hernández Escobar");
+                jvalor = name;
+                opera=0
+            }
+
+        }
+
+
+        function sumBot (){
+            acum = jvalor;
+            opera = 1;
+            acCle();
+        }
+
+
+        function restBot(){
+            acum = jvalor;
+            opera = 2;
+            acCle();
+        }
+        
+
+        function acMult(){
+            acum = jvalor;
+            opera = 3; 
+            acCle();
+        }
+
+
+        function acDiv(){
+            acum = jvalor;
+            opera = 4; 
+            acCle();
+        }
+
+
+        function potBot(){
+            acum = jvalor;
+            opera = 5; 
+            acCle();
+        }
+
+
+        function raizBot(){
+            acum = jvalor;
+            opera = 6;
+            acCle();
+        }
+
+
+        function sinBot(){
+            acum = jvalor;
+            opera = 7;
+            acCle();
+        }
+
+
+        function cosBot(){
+            acum = jvalor;
+            opera = 8;
+            acCle();
+        }
+
+
+        function tanBot(){
+            acum = jvalor;
+            opera = 9;
+            acCle();
+        }
+
+
+        function saludoBot(){
+            acum = jvalor;
+            opera = 10;
+            acCle();
+        }
+
+
+        function acBot( valor ){
+            jvalor = jvalor + valor;
+
+            $("#cajita").val(jvalor);
+        }
+
+
+        function acCle(){
+            $("#cajita").val("");
+            jvalor = "";
+        }
+
+    </script>
+    
+</body>
+</html>
